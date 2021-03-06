@@ -1,16 +1,18 @@
 import { parse, tokensToFunction } from 'path-to-regexp';
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import {once} from "./_internal/once";
 
 declare module 'axios' {
   interface AxiosRequestConfig {
     pathData?: any;
   }
 }
+
 /**
  * 支持 axios.get('/user/:id', { data: { id: '123' } })
  */
 export default function pathRegexpAxios() {
-  return (axios: AxiosInstance) => {
+  return once((axios: AxiosInstance) => {
     const handle = (req: AxiosRequestConfig) => {
       if (!req.pathData) {
         return req;
@@ -37,5 +39,5 @@ export default function pathRegexpAxios() {
     };
 
     axios.interceptors.request.use(handle);
-  };
+  });
 }

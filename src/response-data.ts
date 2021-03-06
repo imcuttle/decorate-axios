@@ -1,4 +1,5 @@
 import {AxiosInstance, AxiosPromise, AxiosResponse} from 'axios';
+import {once} from "./_internal/once";
 
 declare module 'axios' {
   interface AxiosRequestConfig {
@@ -21,7 +22,7 @@ declare module 'axios' {
 }
 
 export default function responseDataAxios() {
-  return (axios: AxiosInstance) => {
+  return once((axios: AxiosInstance) => {
     const handle = (res: AxiosResponse) => {
       if (!res || !res.config) {
         return res;
@@ -33,5 +34,5 @@ export default function responseDataAxios() {
     };
 
     axios.interceptors.response.use(handle, handle);
-  };
+  });
 }

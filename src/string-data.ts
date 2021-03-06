@@ -1,4 +1,5 @@
 import { AxiosInstance } from 'axios';
+import {once} from "./_internal/once";
 
 declare module 'axios' {
   interface AxiosRequestConfig {}
@@ -6,7 +7,7 @@ declare module 'axios' {
 
 // 字符串类型 data，修改 content-type 为 text/plain
 export default function stringDataAxios() {
-  return (axios: AxiosInstance) => {
+  return once((axios: AxiosInstance) => {
     if (typeof axios.defaults.transformRequest === 'function') {
       axios.defaults.transformRequest = [axios.defaults.transformRequest]
     }
@@ -21,5 +22,5 @@ export default function stringDataAxios() {
       }
       return data;
     });
-  };
+  });
 }

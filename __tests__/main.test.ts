@@ -3,7 +3,7 @@
  * @author imcuttle
  * @date 2018/4/4
  */
-import decorateAxios from '../src'
+// import decorateAxios from '../src'
 
 describe('decorateAxios', function() {
   it(
