@@ -7,6 +7,8 @@ export function once(fn) {
       return
     }
     cache.set(axios, true)
-    return fn(axios)
+    fn(axios)
+
+    return () => cache.delete(axios)
   }
 }
