@@ -33,6 +33,6 @@ export default function responseDataAxios() {
       return res;
     };
 
-    axios.interceptors.response.use(handle, handle);
+    axios.interceptors.response.use(handle);
   });
 }

@@ -1,7 +1,7 @@
 
 
+const cache = new Map()
 export function once(fn) {
-  const cache = new Map()
   return (axios) => {
     if (cache.get(axios)) {
       return

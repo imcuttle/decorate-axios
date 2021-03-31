@@ -15,7 +15,7 @@ declare module 'axios' {
 }
 
 export default function apiEndpointAxios({ defaultEndpoint, endPoints }: ApiEndpointOptions) {
-  return once((axios: AxiosInstance) => {
+  return (axios: AxiosInstance) => {
     if (defaultEndpoint) {
       axios.defaults.baseURL = defaultEndpoint;
     }
@@ -31,5 +31,5 @@ export default function apiEndpointAxios({ defaultEndpoint, endPoints }: ApiEndp
     };
 
     axios.interceptors.request.use(handle);
-  });
+  };
 }
