@@ -1,6 +1,6 @@
 {
   "name": "decorate-axios",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "axios decorators",
   "author": "imcuttle <moyuyc95@gmail.com>",
   "scripts": {
