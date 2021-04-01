@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/imcuttle/decorate-axios/compare/v1.0.4...v1.0.5) (2021-04-01)
+
+
+### Bug Fixes
+
+* cache key ([a19fd6e](https://github.com/imcuttle/decorate-axios/commit/a19fd6e19056105efe69a64df193cf131b9f070d))
+
+
+
 ## [1.0.4](https://github.com/imcuttle/decorate-axios/compare/v1.0.3...v1.0.4) (2021-04-01)
 
 
