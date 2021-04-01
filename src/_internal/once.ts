@@ -3,12 +3,20 @@
 const cache = new Map()
 export function once(fn, key: string) {
   return (axios: any) => {
-    if (cache.get(key)) {
+    const map: Map<any, any> = cache.get(key) || new Map()
+    cache.set(key, map)
+
+    if (map.get(axios)) {
       return
     }
-    cache.set(key, true)
+    map.set(axios, true)
     fn(axios)
 
-    return () => cache.delete(key)
+    return () => {
+      map.delete(axios)
+      if (!map.size) {
+        cache.delete(key)
+      }
+    }
   }
 }

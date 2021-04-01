@@ -17,7 +17,16 @@ describe('decorateAxios', function() {
       dec()(axios)
       dec()(axios)
 
-      expect(fn).toBeCalledTimes(1)
+      const newAxios = axios.create()
+      const remove = dec()(newAxios)
+      dec()(newAxios)
+      dec()(axios.create())
+
+      expect(fn).toBeCalledTimes(3)
+
+      remove()
+      dec()(newAxios)
+      expect(fn).toBeCalledTimes(4)
     }
   )
 })
