@@ -39,5 +39,5 @@ export default function pathRegexpAxios() {
     };
 
     axios.interceptors.request.use(handle);
-  });
+  }, 'pathRegexpAxios');
 }

@@ -12,7 +12,7 @@ describe('decorateAxios', function() {
     function () {
       const fn = jest.fn((axios) => {
       })
-      const dec = () => once(fn)
+      const dec = () => once(fn, 'asdsa')
 
       dec()(axios)
       dec()(axios)

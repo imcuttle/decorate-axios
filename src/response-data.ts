@@ -34,5 +34,5 @@ export default function responseDataAxios() {
     };
 
     axios.interceptors.response.use(handle);
-  });
+  }, 'responseDataAxios');
 }

@@ -22,5 +22,5 @@ export default function stringDataAxios() {
       }
       return data;
     });
-  });
+  }, 'stringDataAxios');
 }
